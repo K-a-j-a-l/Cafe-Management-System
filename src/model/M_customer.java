@@ -13,7 +13,7 @@ public class M_customer {
 			Class.forName("oracle.jdbc.driver.OracleDriver");	
 			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system", "admin");
 			Statement smt=con.createStatement();
-			String sql="update customer set rate='"+rate+"'where customer_ID='"+customerId+"'";
+			String sql="update customer set Rate='"+rate+"'where Customer_ID='"+customerId+"'";
 			int a =smt.executeUpdate(sql);
 			con.close();
 		}
