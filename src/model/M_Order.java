@@ -23,7 +23,7 @@ public class M_Order {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Order_ID, Bill, Ordering_Time, Receiving_Time From Orders where Customer_ID='"+customerid+"' and Order_Status='"+"pending"+"'";
+			String sql="select Order_ID, Bill, Ordering_Time, Receiving_Time From Orders where Customer_ID='"+customerid+"' and Order_Status='"+"Pending"+"'";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -61,7 +61,7 @@ public class M_Order {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="insert into Orders(Order_ID, Bill, Ordering_Time, Receiving_Time, Customer_ID, Order_Status) values('"+orderId+"', '"+TotalBill+"', '"+orderTime+"', '"+rec_time+"', '"+customerId+"', '"+"pending"+"')";
+			String sql="insert into Orders(Order_ID, Bill, Ordering_Time, Receiving_Time, Customer_ID, Order_Status) values('"+orderId+"', '"+TotalBill+"', '"+orderTime+"', '"+rec_time+"', '"+customerId+"', '"+"Pending"+"')";
 			int a=smt.executeUpdate(sql);
 		}catch(Exception e) {
 			System.out.println(e);

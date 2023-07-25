@@ -17,11 +17,11 @@ public class M__OrderList {
 		}
 		return null;
 	}
-	public ResultSet ViewOrderList(String customerid) {
+	public ResultSet ViewOrderList() {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select * From Orders where Order_Status='"+"pending"+"'";
+			String sql="select * From Orders where Order_Status='"+"Pending"+"'";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -33,7 +33,7 @@ public class M__OrderList {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="update Orders set Order_Status='"+"paid"+"' where Order_ID='"+value_orderId+"'";
+			String sql="update Orders set Order_Status='"+"Paid"+"' where Order_ID='"+value_orderId+"'";
 			int a=smt.executeUpdate(sql);
 		}catch(Exception e) {
 			System.out.println(e);

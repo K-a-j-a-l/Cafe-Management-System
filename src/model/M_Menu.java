@@ -209,7 +209,7 @@ public class M_Menu {
 		}
 		return false;
 	}
-	public ResultSet ViewMenu(String item) {
+	public ResultSet ViewMenu() {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
