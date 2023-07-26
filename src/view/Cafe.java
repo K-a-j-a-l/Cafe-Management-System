@@ -50,12 +50,12 @@ public class Cafe extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel=new JLabel((String)null);
+		/*JLabel lblNewLabel=new JLabel((String)null);
 		lblNewLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		Image img1=new ImageIcon(this.getClass().getResource("/map2/png")).getImage();
 		lblNewLabel.setIcon(new ImageIcon(img1));
 		lblNewLabel.setBounds(1056, 419, 314, 284);
-		contentPane.add(lblNewLabel);
+		contentPane.add(lblNewLabel);*/
 		
 		
 		JLabel lblNewLabel_1=new JLabel("My Cafe");
@@ -65,9 +65,11 @@ public class Cafe extends JFrame {
 		lblNewLabel_1.setOpaque(true);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Matura MT Script Capitals", Font.BOLD, 60));
+		lblNewLabel_1.setBounds(300, 40, 700, 200);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2=new JLabel("");
+		
+		/*JLabel lblNewLabel_2=new JLabel("");
 		lblNewLabel_2.setBackground(new Color(255, 255, 255));
 		Image img2=new ImageIcon(this.getClass().getResource("")).getImage();
 		lblNewLabel_2.setIcon(new ImageIcon(img2));
@@ -78,7 +80,7 @@ public class Cafe extends JFrame {
 		Image img3=new ImageIcon(this.getClass().getResource("")).getImage();
 		lblNewLabel_3.setIcon(new ImageIcon(img3));
 		lblNewLabel_3.setBounds(0, 192, 426, 526);
-		contentPane.add(lblNewLabel_3);
+		contentPane.add(lblNewLabel_3);*/
 		
 		JButton btnLogin=new JButton("Login");
 		
@@ -95,7 +97,7 @@ public class Cafe extends JFrame {
 		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.setFont(new Font("Calibri", Font.BOLD, 23));
 		btnLogin.setBackground(new Color(153, 51, 51));
-		btnLogin.setBounds(685, 322, 176, 70);
+		btnLogin.setBounds(520, 322, 176, 70);
 		contentPane.add(btnLogin);
 		
 		JButton btnCreateAccount=new JButton("Create Account");
@@ -112,8 +114,21 @@ public class Cafe extends JFrame {
 		btnCreateAccount.setForeground(new Color(255, 255, 255));
 		btnCreateAccount.setFont(new Font("Calibri", Font.BOLD, 23));
 		btnCreateAccount.setBackground(new Color(153, 51, 51));
-		btnCreateAccount.setBounds(685, 442, 176, 75);
+		btnCreateAccount.setBounds(520, 442, 176, 75);
 		contentPane.add(btnCreateAccount);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnExit.setForeground(Color.WHITE);
+		btnExit.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnExit.setBackground(Color.BLACK);
+		btnExit.setBounds(1196, 530, 107, 47);
+		contentPane.add(btnExit);
+		
 		
 		
 		

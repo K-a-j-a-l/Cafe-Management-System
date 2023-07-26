@@ -1,20 +1,15 @@
 package view;
 
 import java.awt.EventQueue;
-import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.SwingConstants;
 import javax.swing.JButton;
-import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -83,7 +78,7 @@ public class DeleteMenuItem extends JFrame{
 		btnDelete.setBackground(Color.BLACK);
 		btnDelete.setForeground(Color.WHITE);
 		btnDelete.setFont(new Font("Calibri", Font.BOLD, 22));
-		btnDelete.setBounds(648, 360, 128, 60);
+		btnDelete.setBounds(439, 360, 128, 60);
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean result=obj_Menu.DeleteMenuItem(textField.getText());
@@ -98,27 +93,38 @@ public class DeleteMenuItem extends JFrame{
 			}
 		});
 		contentPane.add(btnDelete);
-		btnExit=new JButton("Back");
-		btnExit.setForeground(Color.WHITE);
-		btnExit.setBackground(Color.BLACK);
-		btnExit.addActionListener(new ActionListener() {
+		
+		
+		JButton btnBack=new JButton("Back");
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setBackground(Color.BLACK);
+		btnBack.setFont(new Font("Calibri", Font.BOLD, 22));
+		btnBack.setBounds(420, 550, 100, 40);
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(true);
+				Manager_Account frame=new Manager_Account();
+				frame.setVisible(true);
 				dispose();
 			}
 		});
+		contentPane.add(btnBack);
 		
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		
+		btnExit.setForeground(Color.WHITE);
+		btnExit.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnExit.setBackground(Color.BLACK);
+		btnExit.setBounds(1196, 530, 107, 47);
 		contentPane.add(btnExit);
 		
-		btnNewButton=new JButton("Exit");
-		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Calibri", Font.BOLD, 22));
-		btnNewButton.setBounds(1124, 564, 111, 53);
-		contentPane.add(btnNewButton);
-		
 		label=new JLabel("My Cafe");
-		label.setFont(new Font("Mathura MT Script Capitals",Font.BOLD, 20));
+		label.setFont(new Font("Mathura MT Script Capitals",Font.BOLD, 30));
 		label.setBounds(10,11, 182, 32);
 		contentPane.add(label);
 	}

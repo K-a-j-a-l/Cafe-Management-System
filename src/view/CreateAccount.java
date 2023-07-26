@@ -52,13 +52,13 @@ public class CreateAccount extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel=new JLabel("");
+		/*JLabel lblNewLabel=new JLabel("");
 		Image img1=new ImageIcon(this.getClass().getResource("/img12.png")).getImage();
 		lblNewLabel.setIcon(new ImageIcon(img1));
 		lblNewLabel.setBounds(0, 530, 275, 183);
-		contentPane.add(lblNewLabel);
+		contentPane.add(lblNewLabel);*/
 		
-		JLabel lblNewLabel_1=new JLabel("");
+		/*JLabel lblNewLabel_1=new JLabel("");
 		Image img2=new ImageIcon(this.getClass().getResource("/img11.png")).getImage();
 		lblNewLabel_1.setIcon(new ImageIcon(img2));
 		lblNewLabel_1.setBounds(0, 384, 275, 147);
@@ -68,7 +68,7 @@ public class CreateAccount extends JFrame{
 		Image img3=new ImageIcon(this.getClass().getResource("")).getImage();
 		lblNewLabel_2.setIcon(new ImageIcon(img3));
 		lblNewLabel_2.setBounds(0, 219, 275, 164);
-		contentPane.add(lblNewLabel_2);
+		contentPane.add(lblNewLabel_2);*/
 		
 		JLabel lblCreateAccount=new JLabel("CreateAccount");
 		lblCreateAccount.setBackground(new Color(165, 42, 42));
@@ -108,7 +108,7 @@ public class CreateAccount extends JFrame{
 		contentPane.add(lblPassword);
 		
 		passwordField=new JPasswordField();
-		passwordField.setBounds(746, 249, 191, 42);
+		passwordField.setBounds(746, 324, 191, 42);
 		contentPane.add(passwordField);
 		
 		JLabel lblAccountisCreated=new JLabel("");
@@ -125,7 +125,6 @@ public class CreateAccount extends JFrame{
 				int i=0;
 				boolean create=false;
 				while(i<checkId.length()) {
-					System.out.println(checkId_1[i]+"\n");
 					if(checkId_1[i]=='m') {
 						lblAccountisCreated.setText("Account Cannot be Created For Manager");
 						create=false;
@@ -138,9 +137,9 @@ public class CreateAccount extends JFrame{
 				}
 				if(create==true) {
 					boolean result=obj_CustomerAccount.CheckAccount(textField_1.getText());
+					System.out.println(result);
 					if(result==false) {
 						boolean result1=obj_CustomerAccount.createAccount(textField.getText(), textField_1.getText(), passwordField.getText());
-						System.out.println(result1);
 						if(result1==true) {
 							lblAccountisCreated.setText("Account Created");
 						}
@@ -176,5 +175,33 @@ public class CreateAccount extends JFrame{
 		btnLogin.setBackground(new Color(153, 51, 51));
 		btnLogin.setBounds(683, 530, 132, 50);
 		contentPane.add(btnLogin);
+		
+		JButton btnBack=new JButton("Back");
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setBackground(Color.BLACK);
+		btnBack.setFont(new Font("Calibri", Font.BOLD, 22));
+		btnBack.setBounds(420, 550, 100, 40);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cafe frame=new Cafe();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
+		contentPane.add(btnBack);
+		
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnExit.setForeground(Color.WHITE);
+		btnExit.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnExit.setBackground(Color.BLACK);
+		btnExit.setBounds(1196, 530, 107, 47);
+		contentPane.add(btnExit);
+		
 	}
 }

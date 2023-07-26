@@ -59,7 +59,7 @@ public class View extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel=new JLabel("");
+		/*JLabel lblNewLabel=new JLabel("");
 		Image img1=new ImageIcon(this.getClass().getResource("/img12.png")).getImage();
 		lblNewLabel.setIcon(new ImageIcon(img1));
 		lblNewLabel.setBounds(34, 11, 411, 476);
@@ -82,7 +82,7 @@ public class View extends JFrame{
 		Image img4=new ImageIcon(this.getClass().getResource("/img11.png")).getImage();
 		lblNewLabel_1.setIcon(new ImageIcon(img4));
 		lblNewLabel_1.setBounds(683, 559, 350, 144);
-		contentPane.add(lblNewLabel_1);
+		contentPane.add(lblNewLabel_1);*/
 		
 		JLabel lblID=new JLabel("ID:");
 		lblID.setForeground(new Color(153, 0, 51));
@@ -131,7 +131,7 @@ public class View extends JFrame{
 				else {
 					boolean result1=obj_CustomerAccount.login(textField.getText(), passwordField.getText());
 					if(result1==true) {
-						lblNewLabel_2.setText("Login Successful");
+						lblNewLabel_2.setText("Login Successfull");
 						CustomerId =textField.getText();
 						dispose();
 						Form obj_form=new Form();

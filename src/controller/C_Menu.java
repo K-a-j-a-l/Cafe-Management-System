@@ -11,7 +11,7 @@ public class C_Menu {
 		return rs;
 	}
 	public boolean AddMenuItem(String item_name, int item_price, int quantity, String category) {
-		boolean result=obj_M_Menu.AddMenuItem(item_name, item_name, quantity, category);
+		boolean result=obj_M_Menu.AddMenuItem(item_name, item_price, quantity, category);
 		if(result==true) {
 			return true;
 		}

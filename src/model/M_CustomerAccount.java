@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -23,10 +24,16 @@ public class M_CustomerAccount {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="insert into Customer(Customer_ID, Name, Password) values('"+customerId+"','"+customerName+"','"+password+"');";
-			int a=smt.executeUpdate(sql);
-			if(a==1) {
-				return true;			
+			String sql = "INSERT INTO Customer(Customer_ID, Name, Password) VALUES (?, ?, ?)";
+			try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+		        // Set the parameter values
+		        preparedStatement.setString(1, customerId);
+		        preparedStatement.setString(2, customerName);
+		        preparedStatement.setString(3, password);
+		        int i=preparedStatement.executeUpdate();
+		        if(i==1) {
+		        	return true;
+		        }
 			}
 			return false;
 		}

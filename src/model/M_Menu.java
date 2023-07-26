@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -144,36 +145,50 @@ public class M_Menu {
 		}
 		return null;
 	}
-	public boolean AddMenuItem(String item_name, String item_price, int quantity , String category) {
+	public boolean AddMenuItem(String item_name, int item_price, int quantity , String category) {
 		String item_id="";
 		int item_Id_1=1;
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_ID from Menu Order by Item_ID desc limit 1";
+			String sql="select Item_ID from Menu order by Item_ID desc";
 			ResultSet rs=smt.executeQuery(sql);
+			System.out.println(rs);
 			while(rs.next()) {
 				item_id=rs.getString("Item_ID");
+				
 			}
 			if(item_id.equals("")) {
 				item_id="1";
+				item_Id_1=Integer.parseInt(item_id);
 			}
 			else {
 				item_Id_1=Integer.parseInt(item_id);
 				item_Id_1++;
 			}
+			System.out.println(item_Id_1);
 			
 		}catch(Exception e) {
 			System.out.println(e);
 		}
 		try {
 			Connection con=getConnection();
-			Statement smt=con.createStatement();
-			String sql="insert into Menu(Item_ID,Item_Name, Category, Quantity, Item_Price) values ('"+item_Id_1+"', '"+item_name+"', '"+category+"','"+quantity+"','"+item_price+"');";
-			int x=smt.executeUpdate(sql);
-			if(x==1) {
-				return true;
-			}			
+			String sql = "INSERT INTO Menu(Item_ID, Item_Name, Category, Quantity, Item_Price) VALUES (?, ?, ?, ?, ?)";
+			item_id=Integer.toString(item_Id_1);
+			try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+		        // Set the parameter values
+		        preparedStatement.setString(1, item_id);
+		        preparedStatement.setString(2, item_name);
+		        preparedStatement.setString(3, category);
+		        preparedStatement.setInt(4, quantity);
+		        preparedStatement.setInt(5, item_price);
+
+		        // Execute the query
+		        int i=preparedStatement.executeUpdate();
+		        if(i==1) {
+		        	return true;
+		        }
+			}		
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -198,7 +213,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="Update menu set Item_Price= '"+price+"' where Name='"+name+"'";
+			String sql="Update Menu set Item_Price= '"+price+"' where Item_Name='"+name+"'";
 			int x=smt.executeUpdate(sql);
 			if(x==1) {
 				return true;
@@ -213,7 +228,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name, Category, Quantity, Item_Price From Menu'";
+			String sql="select Item_Name, Category, Quantity, Item_Price From Menu";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
