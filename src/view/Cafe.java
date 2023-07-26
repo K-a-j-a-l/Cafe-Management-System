@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
 public class Cafe extends JFrame {
 	
 	private JPanel contentPane;
@@ -61,7 +62,7 @@ public class Cafe extends JFrame {
 		lblNewLabel_1.setBorder(new CompoundBorder());
 		lblNewLabel_1.setBackground(new Color(165, 42, 42));
 		lblNewLabel_1.setForeground(new Color(250, 250, 210));
-		//lblNewLabel_1.setOpaque(true);
+		lblNewLabel_1.setOpaque(true);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Matura MT Script Capitals", Font.BOLD, 60));
 		contentPane.add(lblNewLabel_1);
@@ -82,10 +83,11 @@ public class Cafe extends JFrame {
 		JButton btnLogin=new JButton("Login");
 		
 		btnLogin.addActionListener(new ActionListener() {
-			public void ActionPerformed(ActionEvent e) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				dispose();
 				View obj_login=new View();
-				obj_Login.setVisible(true);
+				obj_login.setVisible(true);
 			}
 		});
 		
@@ -98,7 +100,8 @@ public class Cafe extends JFrame {
 		
 		JButton btnCreateAccount=new JButton("Create Account");
 		btnCreateAccount.addActionListener(new ActionListener() {
-			public void ActionPerformed(ActionEvent e) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				dispose();
 				CreateAccount obj_CreateAccount=new CreateAccount();
 				obj_CreateAccount.setVisible(true);
