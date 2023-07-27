@@ -21,8 +21,9 @@ public class M__OrderList {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select * From Orders where Order_Status='"+"Pending"+"'";
+			String sql="select * From Orders where Order_Status='Pending'";
 			ResultSet rs=smt.executeQuery(sql);
+			System.out.println(rs);
 			return rs;
 		}catch(Exception e) {
 			System.out.println(e);
