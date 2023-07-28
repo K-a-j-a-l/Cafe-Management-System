@@ -22,6 +22,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 import controller.ManagerAccount;
@@ -198,18 +199,45 @@ public class Manager_Account extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResultSet rs=obj_OrderList.viewOrderList();
-				TableModel tableModel=DbUtils.resultSetToTableModel(rs);
+				DefaultTableModel tableModel = new DefaultTableModel();
+
+		        tableModel.addColumn("Order_ID");
+		        tableModel.addColumn("Bill");
+		        tableModel.addColumn("Ordering_Time");
+		        tableModel.addColumn("Receiving_Time");
+		        tableModel.addColumn("Customer_ID");
+		        tableModel.addColumn("Order_Status");
+		        
+		        if(rs==null) {
+		        	System.out.println("No data");
+		        }
+		        // Loop through the ResultSet and add data to the table model
+		        try {
+					while (rs.next()) {
+					    String Order_id = rs.getString("Order_ID");
+					    int Bill = rs.getInt("Bill");
+					    String Customer_ID=rs.getString("Customer_ID");
+					    //String Order_Status=rs.getString("Order_Status");)
+					    // Add the data as a row to the table model
+					    System.out.println(Order_id);
+					    tableModel.addRow(new Object[]{Order_id, Bill, Customer_ID});
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
 				table.setModel(tableModel);
-				
 			}
 		});
+		
+		
 		panel_2.add(btnView);
 		table=new JTable();
 		scrollPane.setViewportView(table);
 		table.setRowHeight(25);
-		JTableHeader obj=table.getTableHeader();
-		obj.setFont(new Font("Calibri", Font.BOLD, 22));
-		
+		/*JTableHeader obj=table.getTableHeader();
+		obj.setFont(new Font("Calibri", Font.BOLD, 22));*/
 		JButton btnDelete=new JButton("Change Status");
 		btnDelete.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		btnDelete.setForeground(Color.WHITE);
@@ -227,7 +255,6 @@ public class Manager_Account extends JFrame{
 				System.out.println(value_order_id);
 				
 				obj_OrderList.ChangeOrderStatus(value_order_id, value_bill);
-				
 				DefaultTableModel model=(DefaultTableModel)table.getModel();
 				try {
 					model.removeRow(row);

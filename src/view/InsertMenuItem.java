@@ -170,18 +170,6 @@ public class InsertMenuItem extends JFrame{
 		lblTitle.setBounds(10,11, 182, 32);
 		contentPane.add(lblTitle);
 		
-		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		btnExit.setForeground(Color.WHITE);
-		btnExit.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnExit.setBackground(Color.BLACK);
-		btnExit.setBounds(1196, 530, 107, 47);
-		contentPane.add(btnExit);
-		
 	}
 	
 }

@@ -22,7 +22,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name From Menu where Category='"+"Snacks"+"' and Qunatity>0";
+			String sql="select Item_Name From Menu where Category='Snack' and Quantity>0";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -34,7 +34,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name From Menu where Category='"+"Junk Food"+"' and Qunatity>0";
+			String sql="select Item_Name From Menu where Category='JunkFood' and Quantity>0";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -46,7 +46,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name From Menu where Category='"+"Meal"+"' and Qunatity>0";
+			String sql="select Item_Name From Menu where Category='Meal' and Quantity>0";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -58,7 +58,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name From Menu where Category='"+"Dessert"+"' and Qunatity>0";
+			String sql="select Item_Name From Menu where Category='Dessert' and Quantity>0";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -70,7 +70,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name From Menu where Category='"+"Juice"+"' and Qunatity>0";
+			String sql="select Item_Name From Menu where Category='Juice' and Quantity>0";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -82,7 +82,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name From Menu where Category='"+"Shake"+"' and Qunatity>0";
+			String sql="select Item_Name From Menu where Category='Shake' and Quantity>0";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -94,7 +94,7 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Name From Menu where Category='"+"Others"+"' and Qunatity>0";
+			String sql="select Item_Name From Menu where Category='Other' and Quantity>0";
 			ResultSet rs=smt.executeQuery(sql);
 			return rs;
 		}catch(Exception e) {
@@ -146,27 +146,24 @@ public class M_Menu {
 		return null;
 	}
 	public boolean AddMenuItem(String item_name, int item_price, int quantity , String category) {
-		String item_id="";
 		int item_Id_1=1;
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_ID from Menu order by Item_ID desc";
+			String sql="SELECT MAX(Item_ID) AS Item_ID FROM Menu";
 			ResultSet rs=smt.executeQuery(sql);
 			System.out.println(rs);
 			while(rs.next()) {
-				item_id=rs.getString("Item_ID");
-				
+				item_Id_1=rs.getInt("Item_ID");
+				System.out.println(item_Id_1);
 			}
-			if(item_id.equals("")) {
-				item_id="1";
-				item_Id_1=Integer.parseInt(item_id);
+			if(item_Id_1==0) {
+				item_Id_1=1;
 			}
 			else {
-				item_Id_1=Integer.parseInt(item_id);
 				item_Id_1++;
 			}
-			System.out.println(item_Id_1);
+			
 			
 		}catch(Exception e) {
 			System.out.println(e);
@@ -174,10 +171,10 @@ public class M_Menu {
 		try {
 			Connection con=getConnection();
 			String sql = "INSERT INTO Menu(Item_ID, Item_Name, Category, Quantity, Item_Price) VALUES (?, ?, ?, ?, ?)";
-			item_id=Integer.toString(item_Id_1);
+			System.out.println(item_Id_1);
 			try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
 		        // Set the parameter values
-		        preparedStatement.setString(1, item_id);
+		        preparedStatement.setInt(1, item_Id_1);
 		        preparedStatement.setString(2, item_name);
 		        preparedStatement.setString(3, category);
 		        preparedStatement.setInt(4, quantity);

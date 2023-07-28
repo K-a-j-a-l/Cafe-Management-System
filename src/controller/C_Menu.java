@@ -55,6 +55,10 @@ public class C_Menu {
 		ResultSet rs=obj_M_Menu.displayShake();
 		return rs;
 	}
+	public ResultSet DisplayJuice() {
+		ResultSet rs=obj_M_Menu.displayJuice();
+		return rs;
+	}
 	public String DisplayPrice(String item) {
 		String price=obj_M_Menu.displayPrice(item);
 		return price;
