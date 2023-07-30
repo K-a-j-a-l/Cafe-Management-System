@@ -59,8 +59,8 @@ public class C_Menu {
 		ResultSet rs=obj_M_Menu.displayJuice();
 		return rs;
 	}
-	public String DisplayPrice(String item) {
-		String price=obj_M_Menu.displayPrice(item);
+	public int DisplayPrice(String item) {
+		int price=obj_M_Menu.displayPrice(item);
 		return price;
 	}
 	public ResultSet SearchFood(String item) {

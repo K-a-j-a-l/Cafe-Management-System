@@ -102,21 +102,21 @@ public class M_Menu {
 		}
 		return null;
 	}
-	public String displayPrice(String item) {
+	public int displayPrice(String item) {
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Item_Price From Menu where Item_Name =upper('"+item+"') or Item_Name =lower('"+item+"')";
+			String sql="select Item_Price From Menu where Item_Name ='"+item+"'";
 			ResultSet rs=smt.executeQuery(sql);
-			String price="";
+			int price=0;
 			while(rs.next()) {
-				price=rs.getString("Item_Price");
+				price=rs.getInt("Item_Price");
 			}
 			return price;
 		}catch(Exception e) {
 			System.out.println(e);
 		}
-		return null;
+		return 0;
 	}
 	public ResultSet SearchFood(String item) {
 		try {
