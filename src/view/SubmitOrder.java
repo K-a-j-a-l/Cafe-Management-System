@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 public class SubmitOrder extends JFrame{
 
 	private JPanel contentPane;
-	private String orderId;
+	private int orderId;
 	private int bill;
 	private String recv_time;
 	private String time;
@@ -54,16 +54,24 @@ public class SubmitOrder extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		/*try {
+		try {
+			if(rs==null) {
+				System.out.println("Data is null");
+			}
+			else {
+				System.out.println("Data is not null");
+			}
 			while(rs.next()) {
-				orderId=rs.getString("Order_ID");
+				orderId=rs.getInt("Order_ID");
 				bill=rs.getInt("Bill");
 				time=rs.getString("Ordering_Time");
 				recv_time=rs.getString("Receiving_Time");
+				System.out.print(orderId);
+				System.out.println(recv_time);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}*/
+		}
 		
 		JLabel lblOrderSub=new JLabel("Order Submitted:");
 		lblOrderSub.setForeground(Color.BLACK);
@@ -89,14 +97,11 @@ public class SubmitOrder extends JFrame{
 		lblOrderingTime.setBounds(400, 150, 400, 50);
 		contentPane.add(lblOrderingTime);
 		
-		JLabel lblReceivingTime=new JLabel("Your can take your order at "+time);
+		JLabel lblReceivingTime=new JLabel("Your can take your order in "+recv_time+" minutes");
 		lblReceivingTime.setForeground(Color.BLACK);
 		lblReceivingTime.setFont(new Font("Calibri", Font.BOLD, 20));
 		lblReceivingTime.setBounds(400, 200, 400, 50);
 		contentPane.add(lblReceivingTime);
-		
-		
-
 	}
 
 }

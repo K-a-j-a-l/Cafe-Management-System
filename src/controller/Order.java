@@ -6,8 +6,8 @@ import model.M_Order;
 public class Order {
 	M_Order obj_M_Order=new M_Order();
 	
-	public String orderFood(String customerId, String Bill) {
-		String orderId=obj_M_Order.OrderFood(customerId, Bill);
+	public int orderFood(String customerId, String Bill) {
+		int orderId=obj_M_Order.OrderFood(customerId, Bill);
 		return orderId;
 	}
 	

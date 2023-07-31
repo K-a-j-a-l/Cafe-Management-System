@@ -26,21 +26,22 @@ public class M_Order {
 			Statement smt=con.createStatement();
 			String sql="select Order_ID, Bill, Ordering_Time, Receiving_Time From Orders where Customer_ID='"+customerid+"' and Order_Status='"+"Pending"+"'";
 			ResultSet rs=smt.executeQuery(sql);
+			System.out.print(rs);
 			return rs;
 		}catch(Exception e) {
 			System.out.println(e);
 		}
 		return null;
 	}
-	public String OrderFood(String customerId, String bill) {
+	public int OrderFood(String customerId, String bill) {
 		
-		int order_id=1;
-		String order_Id_1="";
+		int order_id=0;
 		int totalBill=Integer.parseInt(bill);
 		int rec_time=5;
 		Calendar cal=Calendar.getInstance();
 		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
 		String orderTime=sdf.format(cal.getTime());
+		System.out.println(orderTime);
 		String orderStatus="Pending";
 		try {
 			Connection con=getConnection();
@@ -49,11 +50,11 @@ public class M_Order {
 			ResultSet rs=smt.executeQuery(sql);
 			System.out.println(rs);
 			while(rs.next()) {
-				order_Id_1=rs.getString("Order_ID");
-				System.out.println(order_Id_1);
+				order_id=rs.getInt("Order_ID");
+				System.out.println(order_id);
 			}
-			if(order_Id_1.equals("")) {
-				order_id=1;
+			if(order_id==0) {
+				order_id=101;
 			}
 			else {
 				order_id++;
@@ -65,12 +66,11 @@ public class M_Order {
 		}
 		try {
 			Connection con=getConnection();
-			order_Id_1=Integer.toString(order_id);
-			String sql = "INSERT INTO Orders(order_Id_1, Bill, ORDERING_TIME, RECEIVING_TIME, CUSTOMER_ID, ORDER_STATUS) VALUES (?, ?, ?, ?, ?, ?)";
-			System.out.println(order_Id_1);
+			String sql = "INSERT INTO Orders(Order_ID, Bill, ORDERING_TIME, RECEIVING_TIME, CUSTOMER_ID, ORDER_STATUS) VALUES (?, ?, ?, ?, ?, ?)";
+			System.out.println(order_id);
 			try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
 		        // Set the parameter values
-		        preparedStatement.setString(1, order_Id_1);
+		        preparedStatement.setInt(1, order_id);
 		        preparedStatement.setInt(2, totalBill);
 		        preparedStatement.setString(3, orderTime);
 		        preparedStatement.setInt(4, rec_time);
@@ -79,13 +79,13 @@ public class M_Order {
 		        // Execute the query
 		        int i=preparedStatement.executeUpdate();
 		        if(i==1) {
-		        	return order_Id_1;
+		        	return order_id;
 		        }
 			}		
 		}catch(Exception e){
 			System.out.println(e);
 		}
-		return order_Id_1;
+		return order_id;
 	}
 	
 	public void AddOrderDetails(String orderId, String[] array_itemName, String[] array_Quantity ) {

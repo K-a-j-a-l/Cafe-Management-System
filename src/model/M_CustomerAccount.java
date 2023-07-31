@@ -23,7 +23,6 @@ public class M_CustomerAccount {
 	public boolean createAccount(String customerName, String customerId, String password) {
 		try {
 			Connection con=getConnection();
-			Statement smt=con.createStatement();
 			String sql = "INSERT INTO Customer(Customer_ID, Name, Password) VALUES (?, ?, ?)";
 			try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
 		        // Set the parameter values

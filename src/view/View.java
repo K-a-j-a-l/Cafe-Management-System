@@ -87,33 +87,37 @@ public class View extends JFrame{
 		JLabel lblID=new JLabel("ID:");
 		lblID.setForeground(new Color(153, 0, 51));
 		lblID.setFont(new Font("Calibri", Font.BOLD, 22));
-		lblID.setBounds(718, 130, 125, 28);
+		lblID.setBounds(100, 100, 100, 50);
 		contentPane.add(lblID);
 		
 		textField=new JTextField();
-		textField.setBounds(892, 127, 188, 39);
+		textField.setBounds(200, 100, 250, 50);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblPassword=new JLabel("Password:");
 		lblPassword.setForeground(new Color(153, 0, 51));
 		lblPassword.setFont(new Font("Calibri", Font.BOLD, 22));
-		lblPassword.setBounds(718, 195, 125, 28);
+		lblPassword.setBounds(100, 200, 100, 50);
 		contentPane.add(lblPassword);
 		
 		passwordField=new JPasswordField();
-		passwordField.setBounds(746, 249, 191, 42);
+		passwordField.setBounds(200, 200, 250, 50);
 		contentPane.add(passwordField);
 		
 		JLabel lblNewLabel_2=new JLabel("");
 		lblNewLabel_2.setForeground(new Color(153, 102, 0));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblNewLabel_2.setBounds(837, 464, 178, 23);
+		lblNewLabel_2.setBounds(150, 300, 300, 50);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton btnLogin=new JButton("Login");
-		
+		btnLogin.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		btnLogin.setForeground(new Color(255, 255, 255));
+		btnLogin.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnLogin.setBackground(new Color(153, 51, 51));
+		btnLogin.setBounds(200, 350, 200, 50);
 		btnLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -131,12 +135,11 @@ public class View extends JFrame{
 				else {
 					boolean result1=obj_CustomerAccount.login(textField.getText(), passwordField.getText());
 					if(result1==true) {
-						lblNewLabel_2.setText("Login Successfull");
 						CustomerId =textField.getText();
 						dispose();
-						/*Form obj_form=new Form();
+						Form obj_form=new Form();
 						obj_form.setVisible(true);
-						obj_form.customerId=CustomerId;*/
+						obj_form.customerId=CustomerId;
 					}
 					else {
 						lblNewLabel_2.setText("Login Failed");
@@ -145,14 +148,14 @@ public class View extends JFrame{
 			}
 		});
 		
-		btnLogin.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnLogin.setForeground(new Color(255, 255, 255));
-		btnLogin.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnLogin.setBackground(new Color(153, 51, 51));
-		btnLogin.setBounds(844, 273, 159, 53);
 		contentPane.add(btnLogin);
 		
 		JButton btnCreateAccount=new JButton("Create Account");
+		btnCreateAccount.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		btnCreateAccount.setForeground(new Color(255, 255, 255));
+		btnCreateAccount.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnCreateAccount.setBackground(new Color(153, 51, 51));
+		btnCreateAccount.setBounds(200, 420, 200, 50);
 		btnCreateAccount.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -162,11 +165,6 @@ public class View extends JFrame{
 			}
 		});
 		
-		btnCreateAccount.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnCreateAccount.setForeground(new Color(255, 255, 255));
-		btnCreateAccount.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnCreateAccount.setBackground(new Color(153, 51, 51));
-		btnCreateAccount.setBounds(844, 371, 159, 60);
 		contentPane.add(btnCreateAccount);
 		
 		/*JLabel label_2=new JLabel("");

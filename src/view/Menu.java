@@ -230,14 +230,13 @@ public class Menu extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String orderId=obj_Order.orderFood(obj_View.CustomerId,lblTotalBillValue.getText());
-				obj_Order.addOrderDetails(orderId, array_itemName, array_itemQty);
+				int orderId=obj_Order.orderFood(View.CustomerId,lblTotalBillValue.getText());
+				//obj_Order.addOrderDetails(orderId, array_itemName, array_itemQty);
 				ResultSet rs=null;
-				rs=obj_Order.viewBill(obj_View.CustomerId);
+				rs=obj_Order.viewBill(View.CustomerId);
 				dispose();
 				SubmitOrder obj_Submit=new SubmitOrder(rs);
 				obj_Submit.setVisible(true);
-				
 			}
 			
 		});
