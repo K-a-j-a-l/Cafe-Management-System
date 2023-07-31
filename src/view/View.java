@@ -134,9 +134,9 @@ public class View extends JFrame{
 						lblNewLabel_2.setText("Login Successfull");
 						CustomerId =textField.getText();
 						dispose();
-						Form obj_form=new Form();
+						/*Form obj_form=new Form();
 						obj_form.setVisible(true);
-						obj_form.customerId=CustomerId;
+						obj_form.customerId=CustomerId;*/
 					}
 					else {
 						lblNewLabel_2.setText("Login Failed");
@@ -169,7 +169,7 @@ public class View extends JFrame{
 		btnCreateAccount.setBounds(844, 371, 159, 60);
 		contentPane.add(btnCreateAccount);
 		
-		JLabel label_2=new JLabel("");
+		/*JLabel label_2=new JLabel("");
 		Image img5=new ImageIcon(this.getClass().getResource("/img12.png")).getImage();
 		label_2.setIcon(new ImageIcon(img5));
 		label_2.setBounds(1025, 559, 367, 144);
@@ -181,6 +181,7 @@ public class View extends JFrame{
 		lblNewLabel_3.setIcon(new ImageIcon(img5));
 		lblNewLabel_3.setBounds(590, 11, 377, 53);
 		contentPane.add(lblNewLabel_3);
+		*/
 	}
 
 }

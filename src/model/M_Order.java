@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -31,42 +32,60 @@ public class M_Order {
 		}
 		return null;
 	}
-	public String OrderFood(String customerId, String Bill) {
-		String id="", orderId="";
-		int id_1=0;
-		String rec_time="5";
+	public String OrderFood(String customerId, String bill) {
+		
+		int order_id=1;
+		String order_Id_1="";
+		int totalBill=Integer.parseInt(bill);
+		int rec_time=5;
 		Calendar cal=Calendar.getInstance();
 		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
 		String orderTime=sdf.format(cal.getTime());
+		String orderStatus="Pending";
 		try {
 			Connection con=getConnection();
 			Statement smt=con.createStatement();
-			String sql="select Order_ID From Orders order by Order_ID desc limit 1";
+			String sql="SELECT MAX(Order_ID) AS Order_ID FROM Orders";
 			ResultSet rs=smt.executeQuery(sql);
+			System.out.println(rs);
 			while(rs.next()) {
-				id=rs.getString("Order_ID");
+				order_Id_1=rs.getString("Order_ID");
+				System.out.println(order_Id_1);
 			}
-			if(id.equals("")) {
-				orderId="1001";
+			if(order_Id_1.equals("")) {
+				order_id=1;
 			}
 			else {
-				id_1=Integer.parseInt(id);
-				id_1++;
-				orderId=Integer.toString(id_1);
+				order_id++;
 			}
+			
+			
 		}catch(Exception e) {
 			System.out.println(e);
 		}
-		int TotalBill=Integer.parseInt(Bill);
 		try {
 			Connection con=getConnection();
-			Statement smt=con.createStatement();
-			String sql="insert into Orders(Order_ID, Bill, Ordering_Time, Receiving_Time, Customer_ID, Order_Status) values('"+orderId+"', '"+TotalBill+"', '"+orderTime+"', '"+rec_time+"', '"+customerId+"', '"+"Pending"+"')";
-			int a=smt.executeUpdate(sql);
-		}catch(Exception e) {
+			order_Id_1=Integer.toString(order_id);
+			String sql = "INSERT INTO Orders(order_Id_1, Bill, ORDERING_TIME, RECEIVING_TIME, CUSTOMER_ID, ORDER_STATUS) VALUES (?, ?, ?, ?, ?, ?)";
+			System.out.println(order_Id_1);
+			try (PreparedStatement preparedStatement = con.prepareStatement(sql)) {
+		        // Set the parameter values
+		        preparedStatement.setString(1, order_Id_1);
+		        preparedStatement.setInt(2, totalBill);
+		        preparedStatement.setString(3, orderTime);
+		        preparedStatement.setInt(4, rec_time);
+		        preparedStatement.setString(5, customerId);
+		        preparedStatement.setString(6, orderStatus);
+		        // Execute the query
+		        int i=preparedStatement.executeUpdate();
+		        if(i==1) {
+		        	return order_Id_1;
+		        }
+			}		
+		}catch(Exception e){
 			System.out.println(e);
 		}
-		return orderId;
+		return order_Id_1;
 	}
 	
 	public void AddOrderDetails(String orderId, String[] array_itemName, String[] array_Quantity ) {

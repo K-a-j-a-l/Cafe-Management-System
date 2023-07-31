@@ -45,7 +45,7 @@ public class Menu extends JFrame{
 	Order obj_Order=new Order();
 	CustomerAccount obj_CustomerAccount=new CustomerAccount();
 	Customer obj_Customer=new Customer();
-	//View obj_View=new View();
+	View obj_View=new View();
 
 	private static String[] array_itemName=new String[20];
 	private static String[] array_itemQty=new String[20];
@@ -184,6 +184,14 @@ public class Menu extends JFrame{
 		tabbedPane.addTab("Menu",null, menuPanel, null);
 		menuPanel.setLayout(null);
 		
+		JTabbedPane menutabbedPane=new JTabbedPane(JTabbedPane.TOP);
+		menutabbedPane.setBackground(new Color(128, 128, 128));
+		menutabbedPane.setForeground(Color.BLACK);
+		menutabbedPane.setFont(new Font("Calibri", Font.PLAIN, 30));
+		menutabbedPane.setBounds(0, 60, 1370, 645);
+		menuPanel.add(menutabbedPane);
+		
+		
 		//order Panel
 		JPanel OrderPanel=new JPanel();
 		OrderPanel.setBackground(new Color(153, 153, 102));
@@ -213,14 +221,29 @@ public class Menu extends JFrame{
 		lblTotalBillValue.setBounds(100,250 , 100, 50);
 		OrderPanel.add(lblTotalBillValue);
 		
+		JButton btnConfirm=new JButton("Confirm Order");
+		btnConfirm.setBackground(Color.BLACK);
+		btnConfirm.setForeground(Color.WHITE);
+		btnConfirm.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		btnConfirm.setBounds(100, 400, 200, 50);
+		btnConfirm.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String orderId=obj_Order.orderFood(obj_View.CustomerId,lblTotalBillValue.getText());
+				obj_Order.addOrderDetails(orderId, array_itemName, array_itemQty);
+				ResultSet rs=null;
+				rs=obj_Order.viewBill(obj_View.CustomerId);
+				dispose();
+				SubmitOrder obj_Submit=new SubmitOrder(rs);
+				obj_Submit.setVisible(true);
+				
+			}
+			
+		});
 		
-		JTabbedPane menutabbedPane=new JTabbedPane(JTabbedPane.TOP);
-		menutabbedPane.setBackground(new Color(128, 128, 128));
-		menutabbedPane.setForeground(Color.BLACK);
-		menutabbedPane.setFont(new Font("Calibri", Font.PLAIN, 30));
-		menutabbedPane.setBounds(0, 60, 1370, 645);
-		menuPanel.add(menutabbedPane);
 		
+		OrderPanel.add(btnConfirm);
 		
 		//Snacks Panel
 		
@@ -240,7 +263,7 @@ public class Menu extends JFrame{
 		JLabel lblItemNameSnack=new JLabel("Item Name:");
 		lblItemNameSnack.setForeground(Color.BLACK);
 		lblItemNameSnack.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblItemNameSnack.setBounds(320, 100, 200, 50);
+		lblItemNameSnack.setBounds(300, 100, 200, 50);
 		SnacksMenuPanel.add(lblItemNameSnack);
 		
 		JLabel lblItemNameValueSnack=new JLabel("");
@@ -334,7 +357,7 @@ public class Menu extends JFrame{
 		JLabel lblItemNameJF=new JLabel("Item Name:");
 		lblItemNameJF.setForeground(Color.BLACK);
 		lblItemNameJF.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblItemNameJF.setBounds(320, 100, 200, 50);
+		lblItemNameJF.setBounds(300, 100, 200, 50);
 		JunkFoodMenuPanel.add(lblItemNameJF);
 		
 		JLabel lblItemNameValueJF=new JLabel("");
@@ -431,7 +454,7 @@ public class Menu extends JFrame{
 		JLabel lblItemNameMeal=new JLabel("Item Name:");
 		lblItemNameMeal.setForeground(Color.BLACK);
 		lblItemNameMeal.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblItemNameMeal.setBounds(320, 100, 200, 50);
+		lblItemNameMeal.setBounds(300, 100, 200, 50);
 		MealMenuPanel.add(lblItemNameMeal);
 		
 		JLabel lblItemNameValueMeal=new JLabel("");
@@ -528,7 +551,7 @@ public class Menu extends JFrame{
 		JLabel lblItemNameDess=new JLabel("Item Name:");
 		lblItemNameDess.setForeground(Color.BLACK);
 		lblItemNameDess.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblItemNameDess.setBounds(320, 100, 200, 50);
+		lblItemNameDess.setBounds(300, 100, 200, 50);
 		DessertMenuPanel.add(lblItemNameDess);
 		
 		JLabel lblItemNameValueDess=new JLabel("");
@@ -625,7 +648,7 @@ public class Menu extends JFrame{
 		JLabel lblItemNameShk=new JLabel("Item Name:");
 		lblItemNameShk.setForeground(Color.BLACK);
 		lblItemNameShk.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblItemNameShk.setBounds(320, 100, 200, 50);
+		lblItemNameShk.setBounds(300, 100, 200, 50);
 		ShakesMenuPanel.add(lblItemNameShk);
 		
 		JLabel lblItemNameValueShk=new JLabel("");
@@ -719,7 +742,7 @@ public class Menu extends JFrame{
 		JLabel lblItemNameJui=new JLabel("Item Name:");
 		lblItemNameJui.setForeground(Color.BLACK);
 		lblItemNameJui.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblItemNameJui.setBounds(320, 100, 200, 50);
+		lblItemNameJui.setBounds(300, 100, 200, 50);
 		JuicesMenuPanel.add(lblItemNameJui);
 		
 		JLabel lblItemNameValueJui=new JLabel("");
@@ -817,7 +840,7 @@ public class Menu extends JFrame{
 		JLabel lblItemNameOth=new JLabel("Item Name:");
 		lblItemNameOth.setForeground(Color.BLACK);
 		lblItemNameOth.setFont(new Font("Calibri", Font.BOLD, 20));
-		lblItemNameOth.setBounds(320, 100, 200, 50);
+		lblItemNameOth.setBounds(300, 100, 200, 50);
 		OthersMenuPanel.add(lblItemNameOth);
 		
 		JLabel lblItemNameValueOth=new JLabel("");
@@ -895,12 +918,12 @@ public class Menu extends JFrame{
 		
 		OthersMenuPanel.add(btnAddOth);
 		
-		JButton btnConfirm=new JButton("Confirm Order");
-		btnConfirm.setBackground(Color.BLACK);
-		btnConfirm.setForeground(Color.WHITE);
-		btnConfirm.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnConfirm.setBounds(656, 360, 117, 44);
-		btnConfirm.addActionListener(new ActionListener() {
+		JButton btnView=new JButton("View Order");
+		btnView.setBackground(Color.BLACK);
+		btnView.setForeground(Color.WHITE);
+		btnView.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		btnView.setBounds(550, 400, 200, 50);
+		btnView.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -934,7 +957,7 @@ public class Menu extends JFrame{
 			
 		});
 			
-		OthersMenuPanel.add(btnConfirm);
+		OthersMenuPanel.add(btnView);
 		contentPane.revalidate();
 	}
 	
