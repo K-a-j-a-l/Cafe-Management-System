@@ -163,7 +163,6 @@ public class Menu extends JFrame{
 		}
 		
 		
-		
 		//main panel
 		
 		contentPane=new JPanel();
@@ -203,16 +202,14 @@ public class Menu extends JFrame{
 		OrderPanel.add(scrollPane);
 		
 		JLabel lblTotalBill=new JLabel("Total Bill");
-		lblTotalBill.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTotalBill.setForeground(Color.BLACK);
 		lblTotalBill.setFont(new Font("Calibri", Font.BOLD, 20));
 		lblTotalBill.setBounds(100,200 ,200, 50);
 		OrderPanel.add(lblTotalBill);
 		
 		JLabel lblTotalBillValue=new JLabel("");
-		lblTotalBillValue.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTotalBillValue.setForeground(Color.BLACK);
-		lblTotalBillValue.setFont(new Font("Calibri", Font.BOLD, 28));
+		lblTotalBillValue.setFont(new Font("Calibri", Font.BOLD, 20));
 		lblTotalBillValue.setBounds(100,250 , 100, 50);
 		OrderPanel.add(lblTotalBillValue);
 		
@@ -237,62 +234,62 @@ public class Menu extends JFrame{
 		SnacksBox.setBackground(new Color(153, 153, 102));
 		SnacksBox.setToolTipText("");
 		SnacksBox.setSelectedIndex(0);
-		SnacksBox.setBounds(172, 274, 220, 36);
+		SnacksBox.setBounds(100, 100, 150, 50);
 		SnacksMenuPanel.add(SnacksBox);
 		
-		JLabel lblItemNameSnack=new JLabel("Item Name");
+		JLabel lblItemNameSnack=new JLabel("Item Name:");
 		lblItemNameSnack.setForeground(Color.BLACK);
-		lblItemNameSnack.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameSnack.setBounds(172, 144, 117, 29);
+		lblItemNameSnack.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemNameSnack.setBounds(320, 100, 200, 50);
 		SnacksMenuPanel.add(lblItemNameSnack);
 		
 		JLabel lblItemNameValueSnack=new JLabel("");
 		lblItemNameValueSnack.setForeground(Color.BLACK);
 		lblItemNameValueSnack.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameValueSnack.setBounds(172, 184, 219, 36);
+		lblItemNameValueSnack.setBounds(400, 100, 200, 50);
 		SnacksMenuPanel.add(lblItemNameValueSnack);
 		
 		JLabel lblQtySnack=new JLabel("Quantity:");
 		lblQtySnack.setForeground(Color.BLACK);
-		lblQtySnack.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQtySnack.setBounds(468, 144, 117, 29);
+		lblQtySnack.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQtySnack.setBounds(100, 200, 200, 50);
 		SnacksMenuPanel.add(lblQtySnack);
 		
 		JSpinner QtySpinnerSnack=new JSpinner();
 		QtySpinnerSnack.setModel(new SpinnerNumberModel(1,1,10,1));
 		QtySpinnerSnack.setFont(new Font("Calibri", Font.PLAIN, 20));
-		QtySpinnerSnack.setBounds(468, 184, 219, 36);
+		QtySpinnerSnack.setBounds(200, 200, 100, 50);
 		SnacksMenuPanel.add(QtySpinnerSnack);
 		
 		JLabel lblItemPriceSpinnerSnack=new JLabel("Price:");
 		lblItemPriceSpinnerSnack.setForeground(Color.BLACK);
-		lblItemPriceSpinnerSnack.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceSpinnerSnack.setBounds(468, 242, 117, 29);
+		lblItemPriceSpinnerSnack.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemPriceSpinnerSnack.setBounds(100, 300, 100, 50);
 		SnacksMenuPanel.add(lblItemPriceSpinnerSnack);
 		
 		JLabel lblItemPriceValueSnack=new JLabel("");
 		lblItemPriceValueSnack.setForeground(Color.BLACK);
 		lblItemPriceValueSnack.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceValueSnack.setBounds(468, 274, 219, 36);
+		lblItemPriceValueSnack.setBounds(200, 300, 100, 50);
 		SnacksMenuPanel.add(lblItemPriceValueSnack);
 		
 		JLabel lblTotalPriceSnacks=new JLabel("Total Price:");
 		lblTotalPriceSnacks.setForeground(Color.BLACK);
-		lblTotalPriceSnacks.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceSnacks.setBounds(602, 242, 117, 29);
+		lblTotalPriceSnacks.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblTotalPriceSnacks.setBounds(350, 300, 200, 50);
 		SnacksMenuPanel.add(lblTotalPriceSnacks);
 		
 		JLabel lblTotalPriceValueSnacks=new JLabel("");
 		lblTotalPriceValueSnacks.setForeground(Color.BLACK);
 		lblTotalPriceValueSnacks.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceValueSnacks.setBounds(602, 274, 219, 36);
+		lblTotalPriceValueSnacks.setBounds(450, 300, 100, 50);
 		SnacksMenuPanel.add(lblTotalPriceValueSnacks);
 	
 		JButton btnAddSnacks=new JButton("Add");
 		btnAddSnacks.setBackground(Color.BLACK);
 		btnAddSnacks.setForeground(Color.WHITE);
 		btnAddSnacks.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnAddSnacks.setBounds(356, 360, 117, 44);
+		btnAddSnacks.setBounds(350, 400, 100, 50);
 		btnAddSnacks.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -331,55 +328,55 @@ public class Menu extends JFrame{
 		JunkFoodBox.setBackground(new Color(153, 153, 102));
 		JunkFoodBox.setToolTipText("");
 		JunkFoodBox.setSelectedIndex(0);
-		JunkFoodBox.setBounds(172, 274, 220, 36);
+		JunkFoodBox.setBounds(100, 100, 150, 50);
 		JunkFoodMenuPanel.add(JunkFoodBox);
 		
-		JLabel lblItemNameJF=new JLabel("Item Name");
+		JLabel lblItemNameJF=new JLabel("Item Name:");
 		lblItemNameJF.setForeground(Color.BLACK);
-		lblItemNameJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameJF.setBounds(172, 144, 117, 29);
+		lblItemNameJF.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemNameJF.setBounds(320, 100, 200, 50);
 		JunkFoodMenuPanel.add(lblItemNameJF);
 		
 		JLabel lblItemNameValueJF=new JLabel("");
 		lblItemNameValueJF.setForeground(Color.BLACK);
 		lblItemNameValueJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameValueJF.setBounds(172, 184, 219, 36);
+		lblItemNameValueJF.setBounds(400, 100, 200, 50);
 		JunkFoodMenuPanel.add(lblItemNameValueJF);
 		
 		JLabel lblQtyJF=new JLabel("Quantity:");
 		lblQtyJF.setForeground(Color.BLACK);
-		lblQtyJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQtyJF.setBounds(468, 144, 117, 29);
+		lblQtyJF.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQtyJF.setBounds(100, 200, 200, 50);
 		JunkFoodMenuPanel.add(lblQtyJF);
 		
 		JSpinner QtySpinnerJF=new JSpinner();
 		QtySpinnerJF.setModel(new SpinnerNumberModel(1,1,10,1));
 		QtySpinnerJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		QtySpinnerJF.setBounds(468, 184, 219, 36);
+		QtySpinnerJF.setBounds(200, 200, 100, 50);
 		JunkFoodMenuPanel.add(QtySpinnerJF);
 		
 		JLabel lblItemPriceJF=new JLabel("Price:");
 		lblItemPriceJF.setForeground(Color.BLACK);
-		lblItemPriceJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceJF.setBounds(468, 242, 117, 29);
+		lblItemPriceJF.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemPriceJF.setBounds(100, 300, 100, 50);
 		JunkFoodMenuPanel.add(lblItemPriceJF);
 		
 		JLabel lblItemPriceValueJF=new JLabel("");
 		lblItemPriceValueJF.setForeground(Color.BLACK);
 		lblItemPriceValueJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceValueJF.setBounds(468, 274, 219, 36);
+		lblItemPriceValueJF.setBounds(200, 300, 100, 50);
 		JunkFoodMenuPanel.add(lblItemPriceValueJF);
 		
 		JLabel lblTotalPriceJF=new JLabel("Total Price:");
 		lblTotalPriceJF.setForeground(Color.BLACK);
-		lblTotalPriceJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceJF.setBounds(602, 242, 117, 29);
+		lblTotalPriceJF.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblTotalPriceJF.setBounds(350, 300, 200, 50);
 		JunkFoodMenuPanel.add(lblTotalPriceJF);
 		
 		JLabel lblTotalPriceValueJF=new JLabel("");
 		lblTotalPriceValueJF.setForeground(Color.BLACK);
 		lblTotalPriceValueJF.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceValueJF.setBounds(602, 274, 219, 36);
+		lblTotalPriceValueJF.setBounds(450, 300, 100, 50);
 		JunkFoodMenuPanel.add(lblTotalPriceValueJF);
 	
 
@@ -387,7 +384,7 @@ public class Menu extends JFrame{
 		btnAddJF.setBackground(Color.BLACK);
 		btnAddJF.setForeground(Color.WHITE);
 		btnAddJF.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnAddJF.setBounds(356, 360, 117, 44);
+		btnAddJF.setBounds(350, 400, 100, 50);
 		btnAddJF.addActionListener(new ActionListener() {
 
 			@Override
@@ -428,62 +425,62 @@ public class Menu extends JFrame{
 		MealBox.setBackground(new Color(153, 153, 102));
 		MealBox.setToolTipText("");
 		MealBox.setSelectedIndex(0);
-		MealBox.setBounds(172, 274, 220, 36);
+		MealBox.setBounds(100, 100, 150, 50);
 		MealMenuPanel.add(MealBox);
 		
-		JLabel lblItemNameMeal=new JLabel("Item Name");
+		JLabel lblItemNameMeal=new JLabel("Item Name:");
 		lblItemNameMeal.setForeground(Color.BLACK);
-		lblItemNameMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameMeal.setBounds(172, 144, 117, 29);
+		lblItemNameMeal.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemNameMeal.setBounds(320, 100, 200, 50);
 		MealMenuPanel.add(lblItemNameMeal);
 		
 		JLabel lblItemNameValueMeal=new JLabel("");
 		lblItemNameValueMeal.setForeground(Color.BLACK);
 		lblItemNameValueMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameValueMeal.setBounds(172, 184, 219, 36);
+		lblItemNameValueMeal.setBounds(400, 100, 200, 50);
 		MealMenuPanel.add(lblItemNameValueMeal);
 		
 		JLabel lblQtyMeal=new JLabel("Quantity:");
 		lblQtyMeal.setForeground(Color.BLACK);
-		lblQtyMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQtyMeal.setBounds(468, 144, 117, 29);
+		lblQtyMeal.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQtyMeal.setBounds(100, 200, 200, 50);
 		MealMenuPanel.add(lblQtyMeal);
 		
 		JSpinner QtySpinnerMeal=new JSpinner();
 		QtySpinnerMeal.setModel(new SpinnerNumberModel(1,1,10,1));
 		QtySpinnerMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		QtySpinnerMeal.setBounds(468, 184, 219, 36);
+		QtySpinnerMeal.setBounds(200, 200, 100, 50);
 		MealMenuPanel.add(QtySpinnerMeal);
 		
 		JLabel lblItemPriceMeal=new JLabel("Price:");
 		lblItemPriceMeal.setForeground(Color.BLACK);
 		lblItemPriceMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceMeal.setBounds(468, 242, 117, 29);
+		lblItemPriceMeal.setBounds(100, 300, 100, 50);
 		MealMenuPanel.add(lblItemPriceMeal);
 		
 		JLabel lblItemPriceValueMeal=new JLabel("");
 		lblItemPriceValueMeal.setForeground(Color.BLACK);
 		lblItemPriceValueMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceValueMeal.setBounds(468, 274, 219, 36);
+		lblItemPriceValueMeal.setBounds(200, 300, 100, 50);
 		MealMenuPanel.add(lblItemPriceValueMeal);
 		
 		JLabel lblTotalPriceMeal=new JLabel("Total Price:");
 		lblTotalPriceMeal.setForeground(Color.BLACK);
-		lblTotalPriceMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceMeal.setBounds(602, 242, 117, 29);
+		lblTotalPriceMeal.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblTotalPriceMeal.setBounds(350, 300, 200, 50);
 		MealMenuPanel.add(lblTotalPriceMeal);
 		
 		JLabel lblTotalPriceValueMeal=new JLabel("");
 		lblTotalPriceValueMeal.setForeground(Color.BLACK);
 		lblTotalPriceValueMeal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceValueMeal.setBounds(602, 274, 219, 36);
+		lblTotalPriceValueMeal.setBounds(450, 300, 100, 50);
 		MealMenuPanel.add(lblTotalPriceValueMeal);
 
 		JButton btnAddMeal=new JButton("Add");
 		btnAddMeal.setBackground(Color.BLACK);
 		btnAddMeal.setForeground(Color.WHITE);
 		btnAddMeal.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnAddMeal.setBounds(356, 360, 117, 44);
+		btnAddMeal.setBounds(350, 400, 100, 50);
 		btnAddMeal.addActionListener(new ActionListener() {
 
 			@Override
@@ -525,55 +522,55 @@ public class Menu extends JFrame{
 		DessertBox.setBackground(new Color(153, 153, 102));
 		DessertBox.setToolTipText("");
 		DessertBox.setSelectedIndex(0);
-		DessertBox.setBounds(172, 274, 220, 36);
+		DessertBox.setBounds(100, 100, 150, 50);
 		DessertMenuPanel.add(DessertBox);
 		
-		JLabel lblItemNameDess=new JLabel("Item Name");
+		JLabel lblItemNameDess=new JLabel("Item Name:");
 		lblItemNameDess.setForeground(Color.BLACK);
-		lblItemNameDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameDess.setBounds(172, 144, 117, 29);
+		lblItemNameDess.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemNameDess.setBounds(320, 100, 200, 50);
 		DessertMenuPanel.add(lblItemNameDess);
 		
 		JLabel lblItemNameValueDess=new JLabel("");
 		lblItemNameValueDess.setForeground(Color.BLACK);
 		lblItemNameValueDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameValueDess.setBounds(172, 184, 219, 36);
+		lblItemNameValueDess.setBounds(400, 100, 200, 50);
 		DessertMenuPanel.add(lblItemNameValueDess);
 		
 		JLabel lblQtyDess=new JLabel("Quantity:");
 		lblQtyDess.setForeground(Color.BLACK);
-		lblQtyDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQtyDess.setBounds(468, 144, 117, 29);
+		lblQtyDess.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQtyDess.setBounds(100, 200, 200, 50);
 		DessertMenuPanel.add(lblQtyDess);
 		
 		JSpinner QtySpinnerDess=new JSpinner();
 		QtySpinnerDess.setModel(new SpinnerNumberModel(1,1,10,1));
 		QtySpinnerDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		QtySpinnerDess.setBounds(468, 184, 219, 36);
+		QtySpinnerDess.setBounds(200, 200, 100, 50);
 		DessertMenuPanel.add(QtySpinnerDess);
 		
 		JLabel lblItemPriceDess=new JLabel("Price:");
 		lblItemPriceDess.setForeground(Color.BLACK);
 		lblItemPriceDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceDess.setBounds(468, 242, 117, 29);
+		lblItemPriceDess.setBounds(100, 300, 100, 50);
 		DessertMenuPanel.add(lblItemPriceDess);
 		
 		JLabel lblItemPriceValueDess=new JLabel("");
 		lblItemPriceValueDess.setForeground(Color.BLACK);
 		lblItemPriceValueDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceValueDess.setBounds(468, 274, 219, 36);
+		lblItemPriceValueDess.setBounds(200, 300, 100, 50);
 		DessertMenuPanel.add(lblItemPriceValueDess);
 		
 		JLabel lblTotalPriceDess=new JLabel("Total Price:");
 		lblTotalPriceDess.setForeground(Color.BLACK);
 		lblTotalPriceDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceDess.setBounds(602, 242, 117, 29);
+		lblTotalPriceDess.setBounds(350, 300, 200, 50);
 		DessertMenuPanel.add(lblTotalPriceDess);
 		
 		JLabel lblTotalPriceValueDess=new JLabel("");
 		lblTotalPriceValueDess.setForeground(Color.BLACK);
 		lblTotalPriceValueDess.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceValueDess.setBounds(602, 274, 219, 36);
+		lblTotalPriceValueDess.setBounds(450, 300, 100, 50);
 		DessertMenuPanel.add(lblTotalPriceValueDess);
 	
 
@@ -581,7 +578,7 @@ public class Menu extends JFrame{
 		btnAddDess.setBackground(Color.BLACK);
 		btnAddDess.setForeground(Color.WHITE);
 		btnAddDess.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnAddDess.setBounds(356, 360, 117, 44);
+		btnAddDess.setBounds(350, 400, 100, 50);
 		btnAddDess.addActionListener(new ActionListener() {
 
 			@Override
@@ -622,68 +619,67 @@ public class Menu extends JFrame{
 		ShakesBox.setBackground(new Color(153, 153, 102));
 		ShakesBox.setToolTipText("");
 		ShakesBox.setSelectedIndex(0);
-		ShakesBox.setBounds(172, 274, 220, 36);
+		ShakesBox.setBounds(100, 100, 150, 50);
 		ShakesMenuPanel.add(ShakesBox);
 		
-		JLabel lblItemNameShk=new JLabel("Item Name");
+		JLabel lblItemNameShk=new JLabel("Item Name:");
 		lblItemNameShk.setForeground(Color.BLACK);
-		lblItemNameShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameShk.setBounds(172, 144, 117, 29);
+		lblItemNameShk.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemNameShk.setBounds(320, 100, 200, 50);
 		ShakesMenuPanel.add(lblItemNameShk);
 		
 		JLabel lblItemNameValueShk=new JLabel("");
 		lblItemNameValueShk.setForeground(Color.BLACK);
 		lblItemNameValueShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameValueShk.setBounds(172, 184, 219, 36);
+		lblItemNameValueShk.setBounds(400, 100, 200, 50);
 		ShakesMenuPanel.add(lblItemNameValueShk);
 		
 		JLabel lblQtyShk=new JLabel("Quantity:");
 		lblQtyShk.setForeground(Color.BLACK);
-		lblQtyShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQtyShk.setBounds(468, 144, 117, 29);
+		lblQtyShk.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQtyShk.setBounds(100, 200, 200, 50);
 		ShakesMenuPanel.add(lblQtyShk);
 		
 		JSpinner QtySpinnerShk=new JSpinner();
 		QtySpinnerShk.setModel(new SpinnerNumberModel(1,1,10,1));
 		QtySpinnerShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		QtySpinnerShk.setBounds(468, 184, 219, 36);
+		QtySpinnerShk.setBounds(200, 200, 100, 50);
 		ShakesMenuPanel.add(QtySpinnerShk);
 		
 		JLabel lblItemPriceShk=new JLabel("Price:");
 		lblItemPriceShk.setForeground(Color.BLACK);
-		lblItemPriceShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceShk.setBounds(468, 242, 117, 29);
+		lblItemPriceShk.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemPriceShk.setBounds(100, 300, 100, 50);
 		ShakesMenuPanel.add(lblItemPriceShk);
 		
 		JLabel lblItemPriceValueShk=new JLabel("");
 		lblItemPriceValueShk.setForeground(Color.BLACK);
 		lblItemPriceValueShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceValueShk.setBounds(468, 274, 219, 36);
+		lblItemPriceValueShk.setBounds(200, 300, 100, 50);
 		ShakesMenuPanel.add(lblItemPriceValueShk);
 		
 		JLabel lblTotalPriceShk=new JLabel("Total Price:");
 		lblTotalPriceShk.setForeground(Color.BLACK);
-		lblTotalPriceShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceShk.setBounds(602, 242, 117, 29);
+		lblTotalPriceShk.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblTotalPriceShk.setBounds(350, 300, 200, 50);
 		ShakesMenuPanel.add(lblTotalPriceShk);
 		
 		JLabel lblTotalPriceValueShk=new JLabel("");
 		lblTotalPriceValueShk.setForeground(Color.BLACK);
 		lblTotalPriceValueShk.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceValueShk.setBounds(602, 274, 219, 36);
+		lblTotalPriceValueShk.setBounds(450, 300, 100, 50);
 		ShakesMenuPanel.add(lblTotalPriceValueShk);
 	
 		JButton btnAddShk=new JButton("Add");
 		btnAddShk.setBackground(Color.BLACK);
 		btnAddShk.setForeground(Color.WHITE);
 		btnAddShk.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnAddShk.setBounds(356, 360, 117, 44);
+		btnAddShk.setBounds(350, 400, 100, 50);
 		btnAddShk.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				lblItemNameValueShk.setText(ShakesBox.getSelectedItem().toString());
-				
 				String Item=lblItemNameValueShk.getText().toString();
 				int price=obj_C_Menu.DisplayPrice(Item);
 				System.out.println(price);
@@ -694,7 +690,6 @@ public class Menu extends JFrame{
 				TotalBill+=totalPrice;
 				String total_price=Integer.toString(totalPrice);
 				lblTotalPriceValueShk.setText(total_price);				
-				
 				array_itemPrice[arrayIndex]=lblItemPriceValueShk.getText();
 				array_totalPrice[arrayIndex]=lblTotalPriceValueShk.getText();
 				array_itemName[arrayIndex]=lblItemNameValueShk.getText();
@@ -718,55 +713,55 @@ public class Menu extends JFrame{
 		JuiceBox.setBackground(new Color(153, 153, 102));
 		JuiceBox.setToolTipText("");
 		JuiceBox.setSelectedIndex(0);
-		JuiceBox.setBounds(172, 274, 220, 36);
+		JuiceBox.setBounds(100, 100, 150, 50);
 		JuicesMenuPanel.add(JuiceBox);
 		
-		JLabel lblItemNameJui=new JLabel("Item Name");
+		JLabel lblItemNameJui=new JLabel("Item Name:");
 		lblItemNameJui.setForeground(Color.BLACK);
-		lblItemNameJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameJui.setBounds(172, 144, 117, 29);
+		lblItemNameJui.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemNameJui.setBounds(320, 100, 200, 50);
 		JuicesMenuPanel.add(lblItemNameJui);
 		
 		JLabel lblItemNameValueJui=new JLabel("");
 		lblItemNameValueJui.setForeground(Color.BLACK);
 		lblItemNameValueJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameValueJui.setBounds(172, 184, 219, 36);
+		lblItemNameValueJui.setBounds(400, 100, 200, 50);
 		JuicesMenuPanel.add(lblItemNameValueJui);
 		
 		JLabel lblQtyJui=new JLabel("Quantity:");
 		lblQtyJui.setForeground(Color.BLACK);
-		lblQtyJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQtyJui.setBounds(468, 144, 117, 29);
+		lblQtyJui.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQtyJui.setBounds(100, 200, 200, 50);
 		JuicesMenuPanel.add(lblQtyJui);
 		
 		JSpinner QtySpinnerJui=new JSpinner();
 		QtySpinnerJui.setModel(new SpinnerNumberModel(1,1,10,1));
 		QtySpinnerJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		QtySpinnerJui.setBounds(468, 184, 219, 36);
+		QtySpinnerJui.setBounds(200, 200, 100, 50);
 		JuicesMenuPanel.add(QtySpinnerJui);
 		
 		JLabel lblItemPriceJui=new JLabel("Price:");
 		lblItemPriceJui.setForeground(Color.BLACK);
-		lblItemPriceJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceJui.setBounds(468, 242, 117, 29);
+		lblItemPriceJui.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemPriceJui.setBounds(100, 300, 100, 50);
 		JuicesMenuPanel.add(lblItemPriceJui);
 		
 		JLabel lblItemPriceValueJui=new JLabel("");
 		lblItemPriceValueJui.setForeground(Color.BLACK);
 		lblItemPriceValueJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceValueJui.setBounds(468, 274, 219, 36);
+		lblItemPriceValueJui.setBounds(200, 300, 100, 50);
 		JuicesMenuPanel.add(lblItemPriceValueJui);
 		
 		JLabel lblTotalPriceJui=new JLabel("Total Price:");
 		lblTotalPriceJui.setForeground(Color.BLACK);
-		lblTotalPriceJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceJui.setBounds(602, 242, 117, 29);
+		lblTotalPriceJui.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblTotalPriceJui.setBounds(350, 300, 200, 50);
 		JuicesMenuPanel.add(lblTotalPriceJui);
 		
 		JLabel lblTotalPriceValueJui=new JLabel("");
 		lblTotalPriceValueJui.setForeground(Color.BLACK);
 		lblTotalPriceValueJui.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceValueJui.setBounds(602, 274, 219, 36);
+		lblTotalPriceValueJui.setBounds(450, 300, 100, 50);
 		JuicesMenuPanel.add(lblTotalPriceValueJui);
 	
 
@@ -774,7 +769,7 @@ public class Menu extends JFrame{
 		btnAddJui.setBackground(Color.BLACK);
 		btnAddJui.setForeground(Color.WHITE);
 		btnAddJui.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnAddJui.setBounds(356, 360, 117, 44);
+		btnAddJui.setBounds(350, 400, 100, 50);
 		btnAddJui.addActionListener(new ActionListener() {
 
 			@Override
@@ -816,62 +811,62 @@ public class Menu extends JFrame{
 		OthersBox.setBackground(new Color(153, 153, 102));
 		OthersBox.setToolTipText("");
 		OthersBox.setSelectedIndex(0);
-		OthersBox.setBounds(172, 274, 220, 36);
+		OthersBox.setBounds(100, 100, 150, 50);
 		OthersMenuPanel.add(OthersBox);
 		
-		JLabel lblItemNameOth=new JLabel("Item Name");
+		JLabel lblItemNameOth=new JLabel("Item Name:");
 		lblItemNameOth.setForeground(Color.BLACK);
-		lblItemNameOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameOth.setBounds(172, 144, 117, 29);
+		lblItemNameOth.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemNameOth.setBounds(320, 100, 200, 50);
 		OthersMenuPanel.add(lblItemNameOth);
 		
 		JLabel lblItemNameValueOth=new JLabel("");
 		lblItemNameValueOth.setForeground(Color.BLACK);
 		lblItemNameValueOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemNameValueOth.setBounds(172, 184, 219, 36);
+		lblItemNameValueOth.setBounds(400, 100, 200, 50);
 		OthersMenuPanel.add(lblItemNameValueOth);
 		
 		JLabel lblQtyOth=new JLabel("Quantity:");
 		lblQtyOth.setForeground(Color.BLACK);
-		lblQtyOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQtyOth.setBounds(468, 144, 117, 29);
+		lblQtyOth.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblQtyOth.setBounds(100, 200, 200, 50);
 		OthersMenuPanel.add(lblQtyOth);
 		
 		JSpinner QtySpinnerOth=new JSpinner();
 		QtySpinnerOth.setModel(new SpinnerNumberModel(1,1,10,1));
 		QtySpinnerOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		QtySpinnerOth.setBounds(468, 184, 219, 36);
+		QtySpinnerOth.setBounds(200, 200, 100, 50);
 		OthersMenuPanel.add(QtySpinnerOth);
 		
 		JLabel lblItemPriceOth=new JLabel("Price:");
 		lblItemPriceOth.setForeground(Color.BLACK);
-		lblItemPriceOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceOth.setBounds(468, 242, 117, 29);
+		lblItemPriceOth.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblItemPriceOth.setBounds(100, 300, 100, 50);
 		OthersMenuPanel.add(lblItemPriceOth);
 		
 		JLabel lblItemPriceValueOth=new JLabel("");
 		lblItemPriceValueOth.setForeground(Color.BLACK);
 		lblItemPriceValueOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblItemPriceValueOth.setBounds(468, 274, 219, 36);
+		lblItemPriceValueOth.setBounds(200, 300, 100, 50);
 		OthersMenuPanel.add(lblItemPriceValueOth);
 		
 		JLabel lblTotalPriceOth=new JLabel("Total Price:");
 		lblTotalPriceOth.setForeground(Color.BLACK);
-		lblTotalPriceOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceOth.setBounds(602, 242, 117, 29);
+		lblTotalPriceOth.setFont(new Font("Calibri", Font.BOLD, 20));
+		lblTotalPriceOth.setBounds(350, 300, 200, 50);
 		OthersMenuPanel.add(lblTotalPriceOth);
 		
 		JLabel lblTotalPriceValueOth=new JLabel("");
 		lblTotalPriceValueOth.setForeground(Color.BLACK);
 		lblTotalPriceValueOth.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblTotalPriceValueOth.setBounds(602, 274, 219, 36);
+		lblTotalPriceValueOth.setBounds(450, 300, 100, 50);
 		OthersMenuPanel.add(lblTotalPriceValueOth);
 
 		JButton btnAddOth=new JButton("Add");
 		btnAddOth.setBackground(Color.BLACK);
 		btnAddOth.setForeground(Color.WHITE);
 		btnAddOth.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		btnAddOth.setBounds(356, 360, 117, 44);
+		btnAddOth.setBounds(350, 400, 100, 50);
 		btnAddOth.addActionListener(new ActionListener() {
 
 			@Override
