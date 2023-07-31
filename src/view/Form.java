@@ -5,18 +5,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 import controller.CustomerAccount;
@@ -71,7 +77,7 @@ public class Form extends JFrame{
 		tabbedPane.setBackground(new Color(128, 128, 128));
 		tabbedPane.setForeground(new Color(255, 255, 255));
 		tabbedPane.setFont(new Font("Calibri", Font.PLAIN, 35));
-		tabbedPane.setBounds(0, 28, 1370, 645);
+		tabbedPane.setBounds(0, 0, 1370, 645);
 		contentPane.add(tabbedPane);
 		
 		JPanel HomePanel=new JPanel();
@@ -266,7 +272,96 @@ public class Form extends JFrame{
 		MenuPanel.add(btnViewFull);
 		
 	
+		JPanel InfoPanel=new JPanel();
+		InfoPanel.setBackground(new Color(192, 192, 192));
+		tabbedPane.addTab("Info", null, InfoPanel, null);
+		InfoPanel.setLayout(null);
 		
+		JLabel lblInfo=new JLabel("Info");
+		lblInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInfo.setForeground(Color.BLACK);
+		lblInfo.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblInfo.setBounds(600, 50, 100, 50);
+		InfoPanel.add(lblInfo);
+		
+		
+		JLabel lblContactHead=new JLabel("You can contact us on our Contact No.");
+		lblContactHead.setForeground(Color.BLACK);
+		lblContactHead.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblContactHead.setBounds(50, 100, 400, 50);
+		InfoPanel.add(lblContactHead);
+		
+		JLabel lblContact=new JLabel("0135-2345678");
+		lblContact.setForeground(Color.BLACK);
+		lblContact.setFont(new Font("Calibri", Font.BOLD, 22));
+		lblContact.setBounds(600, 100, 200, 50);
+		InfoPanel.add(lblContact);
+		
+		JPanel BillPanel=new JPanel();
+		BillPanel.setBackground(new Color(192, 192, 192));
+		tabbedPane.addTab("View Bill", null, BillPanel, null);
+		BillPanel.setLayout(null);
+		
+		JLabel lblBill=new JLabel("Bill");
+		lblBill.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBill.setForeground(Color.BLACK);
+		lblBill.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblBill.setBounds(600, 50, 100, 50);
+		BillPanel.add(lblBill);
+		
+		ResultSet rs=obj_Order.viewBill(View.CustomerId);
+		JScrollPane scrollPane=new JScrollPane();
+		scrollPane.setBounds(300,100, 1000, 300);
+		BillPanel.add(scrollPane);
+		DefaultTableModel tableModel = new DefaultTableModel();
+
+        tableModel.addColumn("Order_ID");
+        tableModel.addColumn("Bill");
+        tableModel.addColumn("Ordering Time");
+        tableModel.addColumn("Receiving Time");
+        
+        try {
+			while (rs.next()) {
+			    int OrderId = rs.getInt("Order_ID");
+			    int bill = rs.getInt("Bill");
+			    String order_time = rs.getString("Ordering_Time");
+			    int recv_time = rs.getInt("Receiving_Time");
+			    // Add the data as a row to the table model
+			    tableModel.addRow(new Object[]{OrderId, bill, order_time, recv_time});
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+        
+		table=new JTable(tableModel);
+		table.setBackground(Color.WHITE);
+		table.setRowHeight(25);
+		table.setBorder(new CompoundBorder(new LineBorder(new Color(171, 173, 179)), null));
+		table.setToolTipText("");
+		table.setFont(new Font("Calibri", Font.PLAIN, 16));
+		scrollPane.setViewportView(table);
+		
+		
+		JButton btnLogOut=new JButton("Log Out");
+		btnLogOut.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		btnLogOut.setForeground(Color.WHITE);
+		btnLogOut.setBackground(Color.BLACK);
+		btnLogOut.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnLogOut.setBounds(1150, 0, 120, 50);
+		btnLogOut.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				View obj_View1=new View();
+				obj_View1.setVisible(true);
+				
+			}
+			
+		});
+		contentPane.add(btnLogOut);
 	}
 
 }

@@ -23,7 +23,7 @@ public class SubmitOrder extends JFrame{
 	private JPanel contentPane;
 	private int orderId;
 	private int bill;
-	private String recv_time;
+	private int recv_time;
 	private String time;
 	private String customerId;
 	
@@ -55,17 +55,11 @@ public class SubmitOrder extends JFrame{
 		contentPane.setLayout(null);
 		
 		try {
-			if(rs==null) {
-				System.out.println("Data is null");
-			}
-			else {
-				System.out.println("Data is not null");
-			}
 			while(rs.next()) {
 				orderId=rs.getInt("Order_ID");
 				bill=rs.getInt("Bill");
 				time=rs.getString("Ordering_Time");
-				recv_time=rs.getString("Receiving_Time");
+				recv_time=rs.getInt("Receiving_Time");
 				System.out.print(orderId);
 				System.out.println(recv_time);
 			}

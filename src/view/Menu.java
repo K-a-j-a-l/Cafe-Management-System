@@ -67,7 +67,7 @@ public class Menu extends JFrame{
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
+				try{
 					Menu frame =new Menu();
 					frame.setVisible(true);
 				}catch(Exception e) {
@@ -933,10 +933,6 @@ public class Menu extends JFrame{
 		        tableModel.addColumn("Quantity");
 		        tableModel.addColumn("Total Price");
 		        for(int i=0; i<arrayIndex; i++) {
-		        	System.out.println(array_itemName[i]);
-					System.out.println(array_itemPrice[i]);
-					System.out.println(array_itemQty[i]);
-					System.out.println(array_totalPrice[i]);
 		        	String itemName =array_itemName[i];
 		            String itemPrice = array_itemPrice[i];
 		            String quantity = array_itemQty[i];
@@ -945,6 +941,7 @@ public class Menu extends JFrame{
 		        }
 		        
 		        JTable OrderTable=new JTable(tableModel);
+		        OrderTable.setRowHeight(25);
 		        OrderTable.setBorder(new CompoundBorder(new LineBorder(new Color(171, 173, 179)), null));
 				OrderTable.setToolTipText("");
 				OrderTable.setFont(new Font("Calibri", Font.PLAIN, 16));
